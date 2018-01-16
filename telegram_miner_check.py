@@ -339,14 +339,14 @@ def pause(bot, update, args):
       logger.info("Pause all miners")
       
       for key, value in sorted(config.mlist.iteritems()):
-        merr[key] = False
+        merr[key] = True
 
       update.message.reply_text("pause active, no miners will be monitored", quote=False)
 
     elif args[0] in config.mlist:
       logger.info("Pause " + args[0])
 
-      merr[args[0]] = False
+      merr[args[0]] = True
       update.message.reply_text(args[0] + " on pause", quote=False)
 
     else:
