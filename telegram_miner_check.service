@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram miner check bot
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/user/
+ExecStart=/bin/su - user -c '/usr/bin/python /home/user/telegram_miner_check/telegram_miner_check.py >> /home/user/log/telegram_miner_check.log 2>&1'
+Restart=always
+
+[Install]
+WantedBy=default.target
