@@ -16,8 +16,17 @@ It uses the integrated API of those miners to check on configurable thresholdes 
  - Configurable time between checks
  - Repeat alert until "Confirmed"
  - Pause check on single miner or all miners (while working on miner for example)
- - Can be used in Telegram groups
+ - Can be used in Telegram groups or on single persons
  - Can be run on a miner or on a dedicated server
+ - Configurable pause time (for example while scheduled reboot of rigs)
+
+# Screenshots
+
+![start](https://i.imgur.com/4mxMWRl.jpg)
+![status](https://i.imgur.com/54vDB5E.jpg)
+![alert](https://i.imgur.com/n8yy56m.jpg)
+![confirmed](https://i.imgur.com/UjB9Qjg.jpg)
+
 
 # Requirements
 
