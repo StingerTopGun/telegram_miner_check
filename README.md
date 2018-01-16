@@ -47,12 +47,14 @@ Copy config example to real config:
     cp config.py.example config.py
 
 Edit config with your preferred editor, see comments inside config for more information.
+Make sure you have the ports of your miner-api's set correctly inside config.py !
 
 For testing run bot like this:
 
     python telegram_miner_check.py
 
-If everything works you can install it as a systemd service using the given systemd script:
+If everything works you can install it as a systemd service using the given systemd script.
+Edit the script and insert correct user and path's first.
 
     sudo cp telegram_miner_check.service /lib/systemd/system/
     systemctl daemon-reload
