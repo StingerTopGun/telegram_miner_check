@@ -10,6 +10,15 @@ Currently Supported mining-software:
 
 It uses the integrated API of those miners to check on configurable thresholdes for temperature, hashrate, invalid shares and fanspeed. It also messages you if there is no connection to the miner.
 
+# Features
+
+ - Check multiple miners
+ - Configurable time between checks
+ - Repeat alert until "Confirmed"
+ - Pause check on single miner or all miners (while working on miner for example)
+ - Can be used in Telegram groups
+ - Can be run on a miner or on a dedicated server
+
 # Requirements
 
  - [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot.git) needs to be installed first
