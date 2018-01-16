@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import datetime
+
+# --------------------------------------------------------------------
+# Telegram Bot for checking mining operations
+# created by Stinger
+# using https://github.com/python-telegram-bot/python-telegram-bot.git
+# --------------------------------------------------------------------
+
+# ------------------
+# CONFIG
+# ------------------
+
+# Telegram api key, get it from @BotFather in telegram
+api_key = "777777777777777777777777777777777777777777777"
+
+# Dict of miners:
+# key --> hostname of miner, needs to be inserted into /etc/hosts
+# value --> mining software / coin
+# 	ETH: Claymore Ethereum Miner
+# 	ZEC: EWBF Equihash Miner
+# 	DSTM: Equihash DSTM Miner
+mlist = {'miner1': 'ETH',
+         'miner2': 'ZEC',
+         'miner3': 'DSTM'}
+
+# Ports of the miner-API's
+eth_port = 3333
+zec_port = 3334
+
+#ETH Config, Claymore ETH:
+eth_min_hash = 5 #MHs for one GPU
+eth_max_inv_shares = 5 #percent
+eth_max_temp = 80
+eth_max_fan = 90
+
+#ZEC Config, EWBF and DSTM:
+zec_min_hash = 100 #Sols for one GPU
+zec_max_inv_shares = 5 #percent
+zec_max_temp = 80
+zec_max_fan = 90
+
+# Interval how often the periodic check should be triggered
+run_interval = 300 #secounds
+
+# Chat id where the alert should be send to
+# Add bot and send /status to the bot, chat id will be written in log
+chat_id = '777777777'
+
+# List of user ids of the admins, admins can restart the bot with /restart to reload the config and set the log-level
+# [<id>, <id>]
+LIST_OF_ADMINS = [777777777]
+
+# A time where no checks should be done (e.g. scheduled restart of miners)
+pause_start = datetime.time(16,59,00,0)  #hour, minute
+pause_end = datetime.time(17,15,00,0)  #hour, minute
