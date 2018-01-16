@@ -19,6 +19,7 @@ It uses the integrated API of those miners to check on configurable thresholdes 
  - Can be used in Telegram groups or on single persons
  - Can be run on a miner or on a dedicated server
  - Configurable pause time (for example while scheduled reboot of rigs)
+ - Change config values and reload config with "/restart" command via telegram
 
 # Screenshots
 
