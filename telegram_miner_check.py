@@ -89,7 +89,7 @@ def status(bot, update, args):
 
 
 def check_miners_periodic(bot, job, update = None):
-  if config.pause_start <= datetime.datetime.now().time() <= config.pause_end and (update is None):
+  if config.pause_start <= datetime.datetime.now().time() <= config.pause_end and (update is None) and config.pause_enabled == True:
 
     logger.info("------------------------------")
     logger.info("Inside pause time, do not check because " + 'Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()) + " is between " + '{:%H:%M:%S}'.format(config.pause_start) + " and " + '{:%H:%M:%S}'.format(config.pause_end))
@@ -114,7 +114,7 @@ def check_miners_periodic(bot, job, update = None):
       
       if check != "OK":
         
-        if merr.get(key, None) != True:
+        if merr.get(key, None) not in {True, "pause"}:
 
           logger.info(key + " is not OK: " + check)
 
@@ -125,7 +125,7 @@ def check_miners_periodic(bot, job, update = None):
     
           logger.info(key + " already confirmed or on pause")
 
-      elif key in merr:
+      elif key in merr and merr.get(key, None) != "pause":
  
         # If the miner is OK again, delete entry
         del merr[key]
@@ -339,14 +339,14 @@ def pause(bot, update, args):
       logger.info("Pause all miners")
       
       for key, value in sorted(config.mlist.iteritems()):
-        merr[key] = True
+        merr[key] = "pause"
 
       update.message.reply_text("pause active, no miners will be monitored", quote=False)
 
     elif args[0] in config.mlist:
       logger.info("Pause " + args[0])
 
-      merr[args[0]] = True
+      merr[args[0]] = "pause"
       update.message.reply_text(args[0] + " on pause", quote=False)
 
     else:

@@ -27,7 +27,7 @@ mlist = {'miner1': 'ETH',
 
 # Ports of the miner-API's
 eth_port = 3333
-zec_port = 3334
+zec_port = 2222
 
 #ETH Config, Claymore ETH:
 eth_min_hash = 5 #MHs for one GPU
@@ -37,7 +37,7 @@ eth_max_fan = 90
 
 #ZEC Config, EWBF and DSTM:
 zec_min_hash = 100 #Sols for one GPU
-zec_max_inv_shares = 5 #percent
+zec_max_inv_shares = 20 #percent
 zec_max_temp = 80
 zec_max_fan = 90
 
@@ -53,5 +53,6 @@ chat_id = '777777777'
 LIST_OF_ADMINS = [777777777]
 
 # A time where no checks should be done (e.g. scheduled restart of miners)
+pause_enabled = False
 pause_start = datetime.time(16,59,00,0)  #hour, minute
 pause_end = datetime.time(17,15,00,0)  #hour, minute
